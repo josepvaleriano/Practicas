@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">Empaquetado</string>
+    <string name="app_name">Pakage</string>
+    <string name="btnFragment1">Fragment 1</string>
+    <string name="btnFragment2">Fragment 2</string>
+    <string name="login_empty">Login can\'t be empty</string>
+    <string name="wrong_credentials">The user or password is incorrect</string>
+    <string name="password_empty">Password can\'t be empty</string>
+    <string name="btnFragmentAdd">Add</string>
+    <string name="hello" formatted="false" >hello %s welcome</string>
 </resources>
