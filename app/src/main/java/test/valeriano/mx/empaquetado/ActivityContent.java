@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import test.valeriano.mx.empaquetado.fragment.FragmentList;
 import test.valeriano.mx.empaquetado.fragment.FragmentProfile;
 
 /**
@@ -19,15 +20,14 @@ public class ActivityContent extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_content);
         String userName=getIntent().getExtras().getString("key_user");
         String hello = String.format(getString(R.string.hello),userName);
-        //txt.setText(hello);
+
         findViewById(R.id.btnFragment1).setOnClickListener(this);
         findViewById(R.id.btnFragment2).setOnClickListener(this);
 
     }
 
     public void onClick(View v) {
-        switch (v.getId())
-        {
+        switch (v.getId()){
             case R.id.btnFragment1:
                 changeFragmentA();
                 break;
@@ -38,8 +38,8 @@ public class ActivityContent extends AppCompatActivity implements View.OnClickLi
     }
 
     private void changeFragmentB() {
-        FragmentProfile f = FragmentProfile.newInstance(" Adios mundo :(");
-        //getFragmentManager().beginTransaction().replace(R.id.fragmentHolder,new FragmentList()).commit();
+        //FragmentProfile f = FragmentProfile.newInstance(" Adios mundo :(");
+        getFragmentManager().beginTransaction().replace(R.id.fragmentHolder,new FragmentList()).commit();
         /*FragmentProfile fragment= (FragmentProfile) getFragmentManager().findFragmentById(R.id.fragment_xml);
         if(fragment!=null)
         {

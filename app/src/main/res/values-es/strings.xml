@@ -3,9 +3,9 @@
     <string name="app_name">Empaquetado</string>
     <string name="btnFragment1">Fragmento 1</string>
     <string name="btnFragment2">Fragmento 2</string>
-    <string name="login_empty">El login no puede ser vacio</string>
-    <string name="wrong_credentials">El usuario o password es incorrecto</string>
-    <string name="password_empty">El password no puede ser vacio</string>
+    <string name="login_empty">El usuario no puede ser vacio</string>
+    <string name="wrong_credentials">El usuario o contraseña es incorrecto</string>
+    <string name="password_empty">La contraseña no puede ser vacia</string>
     <string name="btnFragmentAdd">Agregar</string>
     <string name="hello" formatted="false" >Hola %s bienvenido</string>
 </resources>
