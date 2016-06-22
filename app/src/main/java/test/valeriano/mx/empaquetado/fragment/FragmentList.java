@@ -18,7 +18,6 @@ import java.util.List;
 import test.valeriano.mx.empaquetado.R;
 import test.valeriano.mx.empaquetado.adapter.AdapterItemList;
 import test.valeriano.mx.empaquetado.model.ModelItem;
-import test.valeriano.mx.empaquetado.model.ModelUser;
 
 /**
  * Created by luis.valeriano on 18/06/2016.
@@ -44,7 +43,9 @@ public class FragmentList extends Fragment{
                     ModelItem modelItem =adapter.getItem(position);
                     ModelItem modelItem2 = array.get(position);
                     //aqui generar otro action activity
-                    Toast.makeText(getActivity(),modelItem2.item,Toast.LENGTH_SHORT).show();
+                    FragmentProfile f = FragmentProfile.newInstance(modelItem2.item);
+                    getFragmentManager().beginTransaction().replace(R.id.fragmentHolder,f).commit();
+                    //Toast.makeText(getActivity(),modelItem2.item,Toast.LENGTH_SHORT).show();
                 }
             }
         );

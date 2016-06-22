@@ -13,12 +13,13 @@ import test.valeriano.mx.empaquetado.fragment.FragmentProfile;
  */
 public class ActivityContent extends AppCompatActivity implements View.OnClickListener {
 
+    private String userName;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
-        String userName=getIntent().getExtras().getString("key_user");
+        userName=getIntent().getExtras().getString("key_user");
         String hello = String.format(getString(R.string.hello),userName);
 
         findViewById(R.id.btnFragment1).setOnClickListener(this);
@@ -38,17 +39,11 @@ public class ActivityContent extends AppCompatActivity implements View.OnClickLi
     }
 
     private void changeFragmentB() {
-        //FragmentProfile f = FragmentProfile.newInstance(" Adios mundo :(");
         getFragmentManager().beginTransaction().replace(R.id.fragmentHolder,new FragmentList()).commit();
-        /*FragmentProfile fragment= (FragmentProfile) getFragmentManager().findFragmentById(R.id.fragment_xml);
-        if(fragment!=null)
-        {
-            fragment.changeImage();
-        }*/
     }
 
     private void changeFragmentA() {
-        FragmentProfile f = FragmentProfile.newInstance(" Hola mundo");
+        FragmentProfile f = FragmentProfile.newInstance(userName);
         getFragmentManager().beginTransaction().replace(R.id.fragmentHolder,f).commit();
     }
 }

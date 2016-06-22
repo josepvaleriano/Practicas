@@ -8,15 +8,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import test.valeriano.mx.empaquetado.util.PreferenceUtil;
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     /*Declaración de variables*/
     private EditText mUser;
     private EditText mPassword;
     private View loading;
-    private PreferenceUtil preferenceUtil;
+    private String [] usr_to_login = {"jose", "luis", "unam", "javier", "Zenkun"};
+    private String [] pwd_to_login = {"unam"};
 
     /* Actividad principal principal onCreate()*/
     @Override
@@ -58,13 +57,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void validateLogin(String user, String password) {
-        if(user.equals("unam") && password.equals("curso")){
-            Toast.makeText(getApplicationContext(),"Login",Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(getApplicationContext(),ActivityContent.class);
-            intent.putExtra("key_user",user);
-            startActivity(intent);
+        boolean ingreso = false;
+        for (int i=0; i<usr_to_login.length; i++) {
+            if (user.equals(usr_to_login[i]) && password.equals(pwd_to_login[0])) {
+                Toast.makeText(getApplicationContext(), R.string.pass_login, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), ActivityContent.class);
+                intent.putExtra("key_user", user);
+                ingreso = true;
+                startActivity(intent);
+                break;
+            }
         }
-        else {
+        if (!ingreso){
             showError(R.string.wrong_credentials);
             mUser.setText("");
             mPassword.setText("");

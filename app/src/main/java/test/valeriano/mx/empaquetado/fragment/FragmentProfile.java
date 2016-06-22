@@ -19,7 +19,7 @@ public class FragmentProfile extends Fragment{
     private ImageView imgProfile;
     private boolean change=true;
 
-
+    /*Creando la nueva instancia*/
     public static FragmentProfile newInstance(String name){
         FragmentProfile f = new FragmentProfile();
         Bundle b = new Bundle();
@@ -28,11 +28,16 @@ public class FragmentProfile extends Fragment{
         return f;
     }
 
-    public void changeImage(){
+    /*Cambiando la imagen*/
+    public void changeImage(String name){
+        String usrInicial = name.toUpperCase().substring(1,1);
+        String cadenaControl = "M";
+        change = (cadenaControl.compareTo(usrInicial)<0)?true:false;
         imgProfile.setImageResource(change?R.drawable.ic_device_signal_wifi_4_bar: R.drawable.ic_action_settings_voice);
-        change=!change;
+
     }
 
+    /* Creando la visata*/
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
