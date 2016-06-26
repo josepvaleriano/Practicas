@@ -30,7 +30,7 @@ public class FragmentProfile extends Fragment{
 
     /*Cambiando la imagen*/
     public void changeImage(String name){
-        String usrInicial = name.toUpperCase().substring(1,1);
+        String usrInicial = name.toUpperCase().substring(0,1);
         String cadenaControl = "M";
         change = (cadenaControl.compareTo(usrInicial)<0)?true:false;
         imgProfile.setImageResource(change?R.drawable.ic_device_signal_wifi_4_bar: R.drawable.ic_action_settings_voice);
@@ -47,8 +47,10 @@ public class FragmentProfile extends Fragment{
         TextView txt = (TextView) view.findViewById(R.id.txtUserFragment);
         Bundle bundle=getArguments();
         String user ;
-        if(bundle!=null)
-            user=bundle.getString("user_key");
+        if(bundle!=null) {
+            user = bundle.getString("user_key");
+            changeImage(user);
+        }
         else
             user= "XML inflate";
 

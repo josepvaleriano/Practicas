@@ -19,7 +19,7 @@ import test.valeriano.mx.empaquetado.model.ModelItem;
 public class AdapterItemList extends ArrayAdapter <ModelItem>{
 
     /*Se inicializa con el constructor*/
-    public AdapterItemList(Context context, List <ModelItem> list ) {
+    public AdapterItemList(Context context, List <ModelItem> list ){
         super(context, 0, list);
     }
 
